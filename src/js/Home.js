@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import iconPerson from "../icons/circular-avatar.png"
 
-export default class App extends Component {
+export default class Home extends Component {
     constructor(props) {
         super(props);
 
