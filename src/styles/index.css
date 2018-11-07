@@ -1,0 +1,89 @@
+.mainBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+.title{
+  font-size: 29px;
+  position: relative;
+  display: inline-block;
+  font-weight: bolder; 
+}
+.boxDefault {
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 3%; 
+}
+.person{
+  width: 5%;
+}
+ul{
+    list-style-type: none;
+}
+.listNumber{
+  font-size: 25px;
+  text-align: center;
+  margin: 0 20px 0 20px;
+  font-weight: bolder; 
+
+}
+li {
+  display: table-cell;
+}
+.btn-optn{
+  border-radius: 5px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  background-color: lightgrey;
+  color:white;
+  cursor: pointer;
+  top: 30px;
+  position: relative;
+}
+.btn-optn .btn-txt{
+  position: relative;
+float: left;
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 40px
+
+}
+.btn-optn2{
+  border-radius: 5px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  background-color:gray;
+  color:white;
+  cursor: pointer;
+  top: 15px;
+  position: relative;
+}
+.btn-optn2 .btn-txt{
+  position: relative;
+  float: left;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  
+  
+}
+.txtBox{
+display: inline;
+    padding: 5%;
+    font-size: 20px;
+    font-family: Calibri;
+}
+li .listTxt {
+  
+  font: 200 16px/1.5 Georgia, Times New Roman, serif;
+  color:gray;
+  
+  
+}
