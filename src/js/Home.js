@@ -46,7 +46,7 @@ export default class Home extends Component {
                 }
                 if (data == 'crianca') {
                     if (this.state.data.adulto) {
-                        if ((this.state.data.adulto > this.state.data.bebe) && (this.state.data.crianca < this.state.data.adulto * 4)) {
+                        if ((this.state.data.adulto >= this.state.data.bebe) && (this.state.data.crianca < this.state.data.adulto * 4)) {
                             this.setState({ crianca: this.state.data.crianca++, error: '' })
                         } else {
                             this.setState({ error: '1 adulto, s/ bebés, pode adicionar até 4 crianças' });
@@ -58,13 +58,24 @@ export default class Home extends Component {
                 if (data == 'bebe') {
                     if (this.state.data.adulto) {
                         if ((this.state.data.crianca <= this.state.data.adulto) && (this.state.data.adulto > this.state.data.bebe)) {
+                            console.log('add1')
                             this.setState({ bebe: this.state.data.bebe++, error: '' })
-                        } else {
-                            this.setState({ error: '1 adulto, c/ entre 0 - 1 crianças, pode adicionar 1 bebé ' })
-                        }
-                        if (this.state.data.crianca / 2 >= this.state.data.adulto) {
-                            this.setState({ error: '1 adulto, c/ 2 ou mais crianças, não pode adicionar bebés' })
-                        }
+                        } else if (this.state.data.adulto <= this.state.data.bebe) {
+                                console.log('err1')
+                                this.setState({ error: '1 adulto, c/ entre 0 - 1 crianças, pode adicionar 1 bebé ' })
+
+                                if (this.state.data.crianca / 2 >= this.state.data.adulto) {
+                                    console.log('err2')
+                                    this.setState({ error: '1 adulto, c/ 2 ou mais crianças, não pode adicionar bebés' })
+                                }
+                            } else if (this.state.data.crianca / 2 >= this.state.data.adulto) {
+                                console.log('err2')
+                                this.setState({ error: '1 adulto, c/ 2 ou mais crianças, não pode adicionar bebés' })
+                            }else {
+                                console.log('add')
+                                this.setState({ bebe: this.state.data.bebe++, error: '' })
+
+                            }
                     } else {
                         this.setState({ error: 'Precisa de ir acompanhada de adulto' })
                     }
@@ -160,7 +171,7 @@ export default class Home extends Component {
                         if (this.state.openAberto) {
                             return (<div ref={this.setWrapperRef}>
                                 <div style={{ marginTop: '9%' }} className="title">Estado Aberto</div>
-                                <div style={{   border: '3px solid gray',width: '60%',  marginTop: '4%' }} className="boxDefault">
+                                <div style={{ border: '3px solid gray', width: '60%', marginTop: '4%' }} className="boxDefault">
                                     <img className="person" alt='person' src={iconPerson} />
                                     <div className="txtBox">
                                         {adulto || ''} {crianca || ''} {bebe || ''}
